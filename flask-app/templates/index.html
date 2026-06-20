@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>服务器基本信息</h2>
+<table class="table table-bordered">
+    <tr><th>主机名</th><td>{{ info.hostname }}</td></tr>
+    <tr><th>操作系统</th><td>{{ info.os }}</td></tr>
+    <tr><th>CPU 使用率</th><td>{{ info.cpu_percent }}%</td></tr>
+    <tr><th>内存</th><td>总 {{ info.mem_total }} / 已用 {{ info.mem_used }} / 剩余 {{ info.mem_free }}</td></tr>
+    <tr><th>磁盘</th><td>总 {{ info.disk_total }} / 已用 {{ info.disk_used }} / 剩余 {{ info.disk_free }}</td></tr>
+</table>
+{% endblock %}

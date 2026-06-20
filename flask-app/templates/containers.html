@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Docker 容器管理</h2>
+<table class="table table-striped">
+    <thead>
+        <tr><th>容器ID</th><th>名称</th><th>状态</th><th>操作</th></tr>
+    </thead>
+    <tbody>
+        {% for c in containers %}
+        <tr>
+            <td>{{ c.short_id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.status }}</td>
+            <td>
+                {% if 'Up' in c.status %}
+                <a href="/container/stop/{{ c.id }}" class="btn btn-sm btn-warning">停止</a>
+                {% else %}
+                <a href="/container/start/{{ c.id }}" class="btn btn-sm btn-success">启动</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>预定义安全命令</h2>
+<form method="post" action="/commands">
+    <div class="mb-3">
+        <select name="command" class="form-select">
+            {% for cmd in commands %}
+            <option value="{{ cmd }}">{{ cmd }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">执行</button>
+</form>
+{% if result %}
+<hr>
+<h4>执行结果</h4>
+<pre>{{ result }}</pre>
+{% endif %}
+{% endblock %}
